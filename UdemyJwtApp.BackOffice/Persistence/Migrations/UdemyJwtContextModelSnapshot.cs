@@ -8,7 +8,7 @@ using UdemyJwtApp.BackOffice.Persistence.Context;
 
 #nullable disable
 
-namespace UdemyJwtApp.BackOffice.Migrations
+namespace UdemyJwtApp.BackOffice.Persistence.Migrations
 {
     [DbContext(typeof(UdemyJwtContext))]
     partial class UdemyJwtContextModelSnapshot : ModelSnapshot

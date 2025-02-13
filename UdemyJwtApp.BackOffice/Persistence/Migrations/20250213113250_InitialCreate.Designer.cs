@@ -9,10 +9,10 @@ using UdemyJwtApp.BackOffice.Persistence.Context;
 
 #nullable disable
 
-namespace UdemyJwtApp.BackOffice.Migrations
+namespace UdemyJwtApp.BackOffice.Persistence.Migrations
 {
     [DbContext(typeof(UdemyJwtContext))]
-    [Migration("20250213084103_InitialCreate")]
+    [Migration("20250213113250_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

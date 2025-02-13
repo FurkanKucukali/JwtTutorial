@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace UdemyJwtApp.BackOffice.Migrations
+namespace UdemyJwtApp.BackOffice.Persistence.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -1,5 +1,11 @@
+using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using UdemyJwtApp.BackOffice.Core.Application.Interfaces;
+using UdemyJwtApp.BackOffice.Core.Application.Mappings;
 using UdemyJwtApp.BackOffice.Persistence.Context;
+using UdemyJwtApp.BackOffice.Persistence.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +18,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<UdemyJwtContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Local"));
+});
+builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(opt =>
+{
+    opt.AddProfiles(new List<Profile>()
+    {
+        new ProductProfile()
+    });
 });
 
 var app = builder.Build();
