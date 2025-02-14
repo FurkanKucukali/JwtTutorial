@@ -42,7 +42,6 @@ namespace UdemyJwtApp.BackOffice.Persistence.Repository
             this.udemyJwtContext.Set<T>().Remove(entity);
             await this.udemyJwtContext.SaveChangesAsync();
 
-
         }
 
 

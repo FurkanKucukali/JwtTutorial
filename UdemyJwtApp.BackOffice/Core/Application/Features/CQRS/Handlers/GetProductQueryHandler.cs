@@ -7,22 +7,21 @@ using UdemyJwtApp.BackOffice.Core.Domain;
 
 namespace UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Handlers
 {
-    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryRequest, List<ProductListDto>>
+    public class GetProductQueryHandler : IRequestHandler<GetProductQueryRequest, ProductListDto>
     {
         private readonly IRepository<Product> repository;
         private readonly IMapper mapper;
 
-        public GetAllProductsQueryHandler(IRepository<Product> repository, IMapper mapper)
+        public GetProductQueryHandler(IRepository<Product> repository, IMapper mapper)
         {
             this.repository = repository;
             this.mapper = mapper;
         }
 
-        public async Task<List<ProductListDto>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
+        public async Task<ProductListDto> Handle(GetProductQueryRequest request, CancellationToken cancellationToken)
         {
-            var data = await this.repository.GetAllAsync() ; // Null kontrolü
-
-            return this.mapper.Map<List<ProductListDto>>(data);
+            var product = await this.repository.GetByFilterAsync(x => x.Id == request.Id);
+            return this.mapper.Map<ProductListDto>(product);
         }
     }
 }

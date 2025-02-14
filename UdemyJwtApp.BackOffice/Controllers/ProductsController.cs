@@ -22,5 +22,12 @@ namespace UdemyJwtApp.BackOffice.Controllers
            var result = await this._mediator.Send(new GetAllProductsQueryRequest());
             return Ok(result);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var result = await this._mediator.Send(new GetProductQueryRequest(id));
+            return result == null ? NotFound() : Ok(result);
+        }
     }
 }
