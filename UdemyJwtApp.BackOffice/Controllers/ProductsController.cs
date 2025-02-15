@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Queries;
 
 namespace UdemyJwtApp.BackOffice.Controllers
@@ -28,6 +29,14 @@ namespace UdemyJwtApp.BackOffice.Controllers
         {
             var result = await this._mediator.Send(new GetProductQueryRequest(id));
             return result == null ? NotFound() : Ok(result);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var result = await this._mediator.Send(new DeleteProductCommandRequest(id));
+            return NoContent();
+
         }
     }
 }
