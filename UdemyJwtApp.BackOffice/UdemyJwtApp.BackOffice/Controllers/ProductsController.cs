@@ -38,19 +38,5 @@ namespace UdemyJwtApp.BackOffice.Controllers
             return NoContent();
 
         }
-        [HttpPost("Create")]
-        public async Task<IActionResult> Create(CreateProductCommandRequest request)
-        {
-            await this._mediator.Send(request);
-            return Created("", request);
-
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update(UpdateProductCommandRequest request)
-        {
-            await this._mediator.Send(request);
-            return NoContent();
-        }
     }
 }

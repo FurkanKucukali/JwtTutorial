@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UdemyJwtApp.BackOffice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5415a6098b52ca25f8da8e9cb53a7d8227b7daed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f08aa4444e12416c71da3961d935ddf9ff0b0b2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("UdemyJwtApp.BackOffice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UdemyJwtApp.BackOffice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
