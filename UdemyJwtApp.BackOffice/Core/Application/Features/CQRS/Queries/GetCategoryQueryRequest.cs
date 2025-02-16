@@ -3,13 +3,17 @@ using UdemyJwtApp.BackOffice.Core.Application.Dto;
 
 namespace UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Queries
 {
-    public class GetProductQueryRequest : IRequest<ProductListDto>
+    public class GetCategoryQueryRequest:IRequest<CategoryListDto?>
     {
         public int Id { get; set; }
 
-        public GetProductQueryRequest(int id)
+        public GetCategoryQueryRequest(int id)
         {
-             Id = id;
+            Id = id;
+        }
+
+        public GetCategoryQueryRequest()
+        {
         }
     }
 }

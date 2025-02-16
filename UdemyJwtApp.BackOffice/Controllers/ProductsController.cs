@@ -10,38 +10,38 @@ namespace UdemyJwtApp.BackOffice.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IMediator mediator;
 
         public ProductsController(IMediator mediator)
         {
-            _mediator = mediator;
+            this.mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> List()
         {
-           var result = await this._mediator.Send(new GetAllProductsQueryRequest());
+           var result = await this.mediator.Send(new GetAllProductsQueryRequest());
             return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            var result = await this._mediator.Send(new GetProductQueryRequest(id));
+            var result = await this.mediator.Send(new GetProductQueryRequest(id));
             return result == null ? NotFound() : Ok(result);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
 
-            var result = await this._mediator.Send(new DeleteProductCommandRequest(id));
+            var result = await this.mediator.Send(new DeleteProductCommandRequest(id));
             return NoContent();
 
         }
         [HttpPost("Create")]
         public async Task<IActionResult> Create(CreateProductCommandRequest request)
         {
-            await this._mediator.Send(request);
+            await this.mediator.Send(request);
             return Created("", request);
 
         }
@@ -49,7 +49,7 @@ namespace UdemyJwtApp.BackOffice.Controllers
         [HttpPut]
         public async Task<IActionResult> Update(UpdateProductCommandRequest request)
         {
-            await this._mediator.Send(request);
+            await this.mediator.Send(request);
             return NoContent();
         }
     }

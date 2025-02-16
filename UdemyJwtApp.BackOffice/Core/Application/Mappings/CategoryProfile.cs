@@ -4,11 +4,11 @@ using UdemyJwtApp.BackOffice.Core.Domain;
 
 namespace UdemyJwtApp.BackOffice.Core.Application.Mappings
 {
-    public class ProductProfile : Profile
+    public class CategoryProfile : Profile
     {
-
-        public ProductProfile() { 
-            this.CreateMap<Product,ProductListDto>().ReverseMap();
+        public CategoryProfile() { 
+        
+            this.CreateMap< Category,CategoryListDto>().ReverseMap();
         }
     }
 }
