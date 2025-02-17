@@ -1,22 +1,19 @@
-﻿using AutoMapper;
-using MediatR;
-using UdemyJwtApp.BackOffice.Core.Application.Dto;
+﻿using MediatR;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.BackOffice.Core.Application.Interfaces;
 using UdemyJwtApp.BackOffice.Core.Domain;
 
 namespace UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Handlers
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest>
+    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommandRequest>
     {
-        private readonly IRepository<Product> repository;
+        private readonly IRepository<Category> repository;
 
-        public DeleteProductCommandHandler( IRepository<Product> repository)
+        public DeleteCategoryCommandHandler(IRepository<Category> repository)
         {
             this.repository = repository;
         }
-
-        public async Task<Unit> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteCategoryCommandRequest request, CancellationToken cancellationToken)
         {
             var deletedEntity = await repository.GetByIdAsync(request.Id);
             if (deletedEntity != null)
