@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Queries;
+using UdemyJwtApp.BackOffice.Infrastructure.Tools;
 
 namespace UdemyJwtApp.BackOffice.Controllers
 {
@@ -29,7 +30,7 @@ namespace UdemyJwtApp.BackOffice.Controllers
         {
             var dto = await mediator.Send(request);
             if (dto.IsExist) {
-                return Created("", "token oluştur");
+                return Created("", JwtTokenGenerator.GenerateToken(dto));
             }
             else
             {

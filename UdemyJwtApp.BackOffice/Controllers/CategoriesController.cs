@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.BackOffice.Core.Application.Features.CQRS.Queries;
@@ -7,6 +8,8 @@ namespace UdemyJwtApp.BackOffice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin,Member")]
+
     public class CategoriesController : ControllerBase
     {
         private readonly IMediator mediator;
