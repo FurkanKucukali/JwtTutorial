@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyJwtApp.BackOffice", "UdemyJwtApp.BackOffice\UdemyJwtApp.BackOffice.csproj", "{129FB338-2461-473B-A620-BFA909B579F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyJwtApp.Front", "UdemyJwtApp.Front\UdemyJwtApp.Front.csproj", "{90FF3F98-0F08-40AE-B14A-A22BA0841CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{129FB338-2461-473B-A620-BFA909B579F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{129FB338-2461-473B-A620-BFA909B579F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{129FB338-2461-473B-A620-BFA909B579F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FF3F98-0F08-40AE-B14A-A22BA0841CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FF3F98-0F08-40AE-B14A-A22BA0841CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FF3F98-0F08-40AE-B14A-A22BA0841CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FF3F98-0F08-40AE-B14A-A22BA0841CF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,7 +7,7 @@ namespace UdemyJwtApp.BackOffice.Infrastructure.Tools
 
         public const string ValidAudience = "http://localhost";
         public const string ValidIssuer = "http://localhost";
-        public const string Key = "furkanfurkanfurkan1.";
+        public const string Key = "furkanfurkanfurkanfurkanfurkan1.";
         public const int Expire = 5;
 
     }
