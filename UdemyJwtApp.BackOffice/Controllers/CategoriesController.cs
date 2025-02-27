@@ -8,7 +8,7 @@ namespace UdemyJwtApp.BackOffice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin,Member")]
+    [Authorize(Roles = "Admin")]
 
     public class CategoriesController : ControllerBase
     {
