@@ -40,13 +40,13 @@ namespace UdemyJwtApp.Front.Controllers
                    });
 
                     if (tokenModel != null) {
-                        JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+                        JwtSecurityTokenHandler handler = new();
                         var token = handler.ReadJwtToken(tokenModel.Token);
 
                         var claims = token.Claims.ToList();
 
                         if(tokenModel.Token != null)
-                            claims.Add(new Claim("accesToken", tokenModel?.Token));
+                            claims.Add(new Claim("accesToken", tokenModel.Token));
 
 
                         var claimsIdentity = new ClaimsIdentity(claims,JwtBearerDefaults.AuthenticationScheme);

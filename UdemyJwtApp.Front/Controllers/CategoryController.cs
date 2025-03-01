@@ -20,10 +20,9 @@ namespace UdemyJwtApp.Front.Controllers
             var token = User.Claims.FirstOrDefault(x=> x.Type == "accesToken")?.Value;
             if (token != null) { 
             var client = this.httpClientFactory.CreateClient();
+
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                Console.WriteLine($"Token: {token}");
-                var response =  await client.GetAsync("http://localhost:5008/api/categories");
-               
+                var response =  await client.GetAsync("https://localhost:7134/api/categories");
                 if (response.IsSuccessStatusCode) {
                 
                    var jsonData =  await response.Content.ReadAsStringAsync();
@@ -36,6 +35,23 @@ namespace UdemyJwtApp.Front.Controllers
 
             }
             return View();
+        }
+
+        public async Task<IActionResult> Remove(int id)
+        {
+            var token = User.Claims.FirstOrDefault(x => x.Type == "accesToken")?.Value;
+            if (token != null)
+            {
+                var client = this.httpClientFactory.CreateClient();
+
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var response = await client.DeleteAsync($"https://localhost:7134/api/categories/{id}");               
+                
+            }
+            return RedirectToAction("List");
+
+
+
         }
     }
 }

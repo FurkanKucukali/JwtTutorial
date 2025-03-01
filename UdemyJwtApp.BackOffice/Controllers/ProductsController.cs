@@ -9,7 +9,7 @@ namespace UdemyJwtApp.BackOffice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Member")]
     public class ProductsController : ControllerBase
     {
         private readonly IMediator mediator;

@@ -12,6 +12,8 @@
                 <tr>
                     <td>Id</td>
                     <td>Definitioon</td>
+                    <td></td>
+
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +22,9 @@
                     <tr>
                         <td> @category.Id</td>
                         <td> @category.Definition</td>
+                        <td>
+                        <a asp-action="Remove" asp-controller="Category" asp-route-id="@category.Id"  class = "btn btn-danger btn-sm">Sil</a>
+                        </td>
                     </tr>
                 }
             </tbody>
