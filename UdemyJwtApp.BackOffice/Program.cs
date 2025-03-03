@@ -61,6 +61,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 builder.Services.AddDbContext<UdemyJwtContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Local"));
