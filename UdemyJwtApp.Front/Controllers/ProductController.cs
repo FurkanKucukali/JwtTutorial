@@ -39,6 +39,50 @@ namespace UdemyJwtApp.Front.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> Remove(int id)
+        {
+            var token = User.Claims.FirstOrDefault(x => x.Type == "accesToken")?.Value;
+            if (token != null)
+            {
+                var client = this.httpClientFactory.CreateClient();
+
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var response = await client.DeleteAsync($"https://localhost:7134/api/products/{id}");
+
+            }
+            return RedirectToAction("List");
+
+        }
+        public async Task<IActionResult> Create( )
+        {
+            var model = new CreateProductList();
+            var token = User.Claims.FirstOrDefault(x => x.Type == "accesToken")?.Value;
+            if (token != null)
+            {
+
+                var client = this.httpClientFactory.CreateClient();
+
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var response = await client.GetAsync($"https://localhost:7134/api/categories");
+
+                if (response.IsSuccessStatusCode) { 
+                
+                    var jsonData  = await response.Content.ReadAsStringAsync();
+                    var data =  JsonSerializer.Deserialize<List<CategoryListModel>>(jsonData, new JsonSerializerOptions
+                    {
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                    });
+                    model.Categories = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(data, "Definition","Id");
+                     
+                    return View(model);
+                }
+
+
+            }
+                
+
+            return RedirectToAction("List");
+        }
 
         public IActionResult Index()
         {
